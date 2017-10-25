@@ -1,0 +1,86 @@
+{% extends "main.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Paulo Lopez">
+
+    <title>FSND - Vehicle Item Catalog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="category-item column">
+            <h6 class="category-item__header">
+                <span class="header__title">Edit Vehicle</span>
+            </h6>
+        </div>
+        <form action="#" method="post" class="category-item__form">
+            <fieldset>
+                <label for="" class="form__label">Name:</label>
+
+            </fieldset>
+            <fieldset>
+                <input type="text" name="name" value="{{categoryItem.name}}" class="form__input">
+                <div>
+                    <br>
+                </div>
+                <label for="" class="form__label">Description:</label>
+            </fieldset>
+            <fieldset>
+                <textarea name="description" id="" cols="100" rows="10" class="form__textarea">{{categoryItem.description}}</textarea>
+            </fieldset>
+            <fieldset>
+                <label for="" class="form__label">Category:</label>
+            </fieldset>
+            <fieldset>
+                <div>
+                    <br>
+                </div>
+                <select class="form__select" name="category">
+						{% for category in categories %}
+							{% if categoryItem.category_id == category.id %}
+								<option selected value="{{category.id}}">{{category.name}}</option>
+							{% else %}
+								<option value="{{category.id}}">{{category.name}}</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+            </fieldset>
+            <fieldset>
+                <div>
+                    <br>
+                </div>
+                <a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}" class="button button-outline">Back Or </a>
+                <input type="submit" value="Save">
+                <div>
+                    <br>
+                </div>
+                <p class="flash__message">Your are editing this vehicle item. After you are done press the save button.</p>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/jquery/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}

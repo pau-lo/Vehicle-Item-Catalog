@@ -1,0 +1,280 @@
+/* General */
+
+h1 {
+    font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    color: rgb(235, 238, 238);
+    line-height: 50px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 18px;
+    color: rgb(235, 238, 238);
+    line-height: 29px;
+}
+
+h3 {
+    font-size: 18px;
+    color: rgb(235, 238, 238);
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 18px;
+    color: rgb(235, 238, 238);
+    line-height: 23px;
+}
+
+p {
+    font-family: "Helvetica Neue", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: rgb(235, 238, 238);
+    line-height: 24px;
+    font-weight: 400;
+}
+
+strong {
+    font-size: 16px;
+    color: rgb(233, 224, 221);
+    line-height: 24px;
+}
+
+a {
+    font-size: 14px;
+    color: rgb(0, 185, 0);
+    line-height: 14px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.flash {
+    background-color: #98FB98;
+    width: 100%;
+    text-decoration: none;
+}
+
+.flash li {
+    list-style-type: none;
+    text-align: center;
+}
+
+p,
+dd,
+dt {
+    color: #4ec48d;
+}
+
+.pane {
+    position: absolute;
+    left: 25%;
+    border: 2px solid;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    border-color: #999999;
+    background-color: #333333
+}
+
+.header {
+    left: 30%;
+    text-align: left;
+}
+
+.name {
+    width: 40%;
+    display: inline-block;
+}
+
+
+/* main */
+
+* {
+    font-family: "Helvetica Neue Bold", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.wrapper .container {
+    max-width: 100rem;
+}
+
+.nav .header {
+    background: #f4f5f6;
+    border-bottom: .1rem solid #181616;
+    display: block;
+    height: 4.2rem;
+    width: 100%;
+}
+
+.header .header__title {
+    color: #4ec48d;
+    display: inline;
+    line-height: 5.2rem;
+    position: relative;
+}
+
+.header__title .title__text {
+    display: inline;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    color: #080a0a;
+}
+
+.header__user {
+    height: 5.2rem;
+    float: right;
+    color: #080a0a;
+    list-style: none;
+    position: relative;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.header__user .user__nav {
+    line-height: 5.2rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    color: #070708;
+}
+
+.content .container {
+    background: #0e0f0f;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-bottom: .1rem solid #d1d1d1;
+}
+
+@media (min-width: 40.0rem) {
+    .content .container {
+        margin-top: 2rem;
+        border: .1rem solid #d1d1d1;
+    }
+}
+
+
+/* Categories */
+
+@media (min-width: 40.0rem) {
+    .categories {
+        margin-right: 2rem;
+    }
+}
+
+.list__header .header__title {
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: #d1d1d1;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.list__header .header__bar {
+    border-bottom: .5rem solid #03060c;
+    height: .1rem;
+    display: block;
+    width: 5rem;
+}
+
+.items__item .item__name {
+    text-transform: capitalize;
+}
+
+.items__item .item__type {
+    color: #c3c7c9;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.latest__list .list__add {
+    font-size: 2rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    padding: 0 1.5rem;
+}
+
+
+/* Category Item */
+
+.category-item__header .header__title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.category-item__header .header__bar {
+    border-bottom: .5rem solid #343235;
+    height: .1rem;
+    display: block;
+    width: 5rem;
+    font-size: 2rem;
+}
+
+.category-item__description {
+    margin-bottom: 1rem;
+    color: rgb(235, 238, 238);
+    line-height: 29px;
+}
+
+.category-item__controls .controls__edit,
+.category-item__controls .controls__delete,
+.category-item__controls .controls__back {
+    display: inline;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    margin-right: .2rem;
+}
+
+
+/* Add Category  */
+
+.category-item__form .form__label {
+    display: inline;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+}
+
+.category-item__form .form__textarea {
+    min-height: 30rem;
+}
+
+
+/* Login Template */
+
+.wrapper .container {
+    max-width: 100rem;
+}
+
+.content .container--login {
+    padding: 7.5rem 5rem;
+    margin-top: 10rem;
+    border: .1rem solid #d1d1d1;
+    text-align: center;
+}
+
+.login__separator {
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.login__button {}
+
+.login__button--facebook {
+    background: #3B5997;
+    border-color: #3B5997;
+}
+
+.login__button--google {
+    margin-top: 1rem;
+    background: #da4635;
+    border-color: #da4635;
+}
+
+
+/* end */

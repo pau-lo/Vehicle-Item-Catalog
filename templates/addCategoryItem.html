@@ -1,0 +1,69 @@
+{% extends "main.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Paulo Lopez">
+
+    <title>FSND - Vehicle Item Catalog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="category-item column">
+            <h6 class="category-item__header">
+                <span class="header__title">Add New Vehicle</span>
+            </h6>
+        </div>
+        <form action="#" method="post" class="category-item__form">
+            <fieldset>
+                <label for="" class="form__label">Name:</label>
+
+            </fieldset>
+            <fieldset>
+                <input type="text" name="name" class="form__input">
+                <div>
+                    <br>
+                </div>
+
+                <label for="" class="form__label">Description:</label>
+                <div>
+                    <br>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <textarea name="description" id="description" cols="100" rows="10" class="form__textarea"></textarea>
+                <label for="" class="form__label">Category:</label>
+                <select class="form__select" name="category">
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                </select>
+            </fieldset>
+            <fieldset>
+                <input type="submit" value="Add New Vehicle"> {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                <p class="flash__message">{{ message }}</p>
+                {% endfor %} {% endif %} {% endwith %}
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

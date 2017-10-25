@@ -1,0 +1,54 @@
+{% extends "main.html" %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Paulo Lopez">
+
+    <title>FSND - Vehicle Item Catalog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="category-item column">
+            <h3 class="category-item__header">
+                <span class="header__title">{{categoryItem.name}}</span>
+                <span class="header__bar"></span>
+            </h3>
+            <div class="category-item__description">
+                {{categoryItem.description}}
+            </div>
+            <div class="category-item__controls">
+                <a href="{{url_for('showCategory', catalog_id = categoryItem.category_id)}}" class="controls__back">Back</a> {% if 'username' in session and creator.id == session['user_id'] %}
+                <a href="{{url_for('editCategoryItem', catalog_id = categoryItem.category_id, item_id = categoryItem.id)}}" class="controls__edit">Edit</a>
+                <a> Or
+                    </a>
+                <a href="{{url_for('deleteCategoryItem', catalog_id = categoryItem.category_id, item_id = categoryItem.id)}}" class="controls__delete">Delete</a> {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/jquery/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+</body>
+
+</html>
+
+
+{% endblock %}
