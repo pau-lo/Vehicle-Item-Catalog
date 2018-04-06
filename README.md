@@ -40,7 +40,7 @@ Then move inside the catalog folder:
 
 Then run the application:
 
-We are using python2 which is already specify on my path as just python:
+We are using python2 which is already specified on my path as just python:
 
 `python app.py`
 
