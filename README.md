@@ -40,6 +40,8 @@ Then move inside the catalog folder:
 
 Then run the application:
 
+We are using python2 which is already specify on my path as just python:
+
 `python app.py`
 
 After the last command you are able to browse the application at this URL:
