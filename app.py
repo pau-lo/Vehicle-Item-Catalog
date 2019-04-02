@@ -428,5 +428,5 @@ if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     host = os.getenv('IP', '0.0.0.0')
     port = int(os.getenv('PORT', 5000))
-    app.debug = True
+    app.debug = False
     app.run(host=host, port=port)
