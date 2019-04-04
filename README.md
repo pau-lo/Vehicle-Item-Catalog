@@ -49,8 +49,6 @@ After the last command you are able to browse the application at this URL:
 `http://localhost:5000/`
 
 
-# Thanks
+#### Thanks
     
-Thanks to the FSND Slack channel for sharing their ideas and advice along the way.
-
 
