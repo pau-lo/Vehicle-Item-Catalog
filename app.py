@@ -48,8 +48,6 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Adding a login decorators
-
-
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -60,8 +58,6 @@ def login_required(f):
 
 
 # Creating a new User, getting info and get user id.
-
-
 def createUser(login_session):
     newUser = User(username=login_session['username'],
                    email=login_session['email'],
@@ -84,9 +80,8 @@ def getUserID(email):
     except:
         return None
 
+    
 # creating an end point: www.mysite.com/api/ and others
-
-
 @app.route('/')
 # endpoint catalog: accessing the categorie template as well
 # home page/main page
@@ -101,9 +96,8 @@ def showCategories():
     return render_template('categories.html', categories=categories,
                            categoryItems=categoryItems)
 
+
 # Show all Categories: itmes and id
-
-
 @app.route('/catalog/<int:catalog_id>')
 @app.route('/catalog/<int:catalog_id>/items')
 def showCategory(catalog_id):
@@ -129,9 +123,8 @@ def showCategory(catalog_id):
                            categoryName=categoryName,
                            categoryItemsCount=categoryItemsCount)
 
+
 # Get Category Items and id
-
-
 @app.route('/catalog/<int:catalog_id>/items/<int:item_id>')
 def showCategoryItem(catalog_id, item_id):
     # Get category item
@@ -143,9 +136,8 @@ def showCategoryItem(catalog_id, item_id):
     return render_template('categoryItem.html', categoryItem=categoryItem,
                            creator=creator)
 
+
 # Create/Add a new Category item
-
-
 @app.route('/catalog/add/', methods=['GET', 'POST'])
 @login_required
 def addCategoryItem():
@@ -176,11 +168,11 @@ def addCategoryItem():
         return render_template('addCategoryItem.html', categories=categories)
     # returning this page will prompt the user to add a new vehicle
 
+
 # Edit a catalog item
-
-
 @app.route('/catalog/<int:catalog_id>/items/<int:item_id>/edit',
            methods=['GET', 'POST'])
+
 @login_required
 def editCategoryItem(catalog_id, item_id):
     # Get category item
@@ -212,11 +204,11 @@ def editCategoryItem(catalog_id, item_id):
                                categories=categories,
                                categoryItem=categoryItem)
 
+
 # Delete a catalog item
-
-
 @app.route('/catalog/<int:catalog_id>/items/<int:item_id>/delete',
            methods=['GET', 'POST'])
+
 @login_required
 def deleteCategoryItem(catalog_id, item_id):
     # Get category item
@@ -239,10 +231,9 @@ def deleteCategoryItem(catalog_id, item_id):
                                categoryItem=categoryItem)
 
 
+
 # Store in the session for later validation
 # Create anti-forgery state token
-
-
 @app.route('/login')
 def login():
     # Create anti-forgery state token
@@ -252,9 +243,8 @@ def login():
     # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
+
 # CONNECT:  Connecting to Gplus
-
-
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
@@ -345,9 +335,8 @@ def gconnect():
     print "done!"
     return output
 
+
 # DISCONNECT - Revoke a current user's token and reset their login_session
-
-
 # @app.route('/gdisconnect')
 def gdisconnect():
     # Only disconnect a connected user.
@@ -368,16 +357,13 @@ def gdisconnect():
 
 
 # JSON Catalog information
-
-
 @app.route('/catalog/JSON')
 def showCategoriesJSON():
     categories = session.query(Category).all()
     return jsonify(categories=[category.serialize for category in categories])
 
+
 # JSON APIs to view Vehicle Item Catalog Information
-
-
 @app.route('/catalog/<int:catalog_id>/JSON')
 @app.route('/catalog/<int:catalog_id>/items/JSON')
 def showCategoryJSON(catalog_id):
@@ -392,9 +378,8 @@ def showCategoryItemJSON(catalog_id, item_id):
     categoryItem = session.query(CategoryItem).filter_by(id=item_id).first()
     return jsonify(categoryItem=[categoryItem.serialize])
 
+
 # Just an about page
-
-
 @app.route('/about')
 def about():
     return render_template('about.html')
