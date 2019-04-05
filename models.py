@@ -9,8 +9,6 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 # creeating the User class
-
-
 class User(Base):
     __tablename__ = 'user'
 
@@ -19,9 +17,8 @@ class User(Base):
     email = Column(String(250), nullable=False)
     picture = Column(String(250))
 
+    
 # creating a category class
-
-
 class Category(Base):
     __tablename__ = 'category'
 
@@ -38,9 +35,8 @@ class Category(Base):
             'id': self.id,
         }
 
+    
 # creating the item categories class
-
-
 class CategoryItem(Base):
     __tablename__ = 'category_item'
 
@@ -67,6 +63,7 @@ class CategoryItem(Base):
 
 # creating the the empty database
 engine = create_engine('sqlite:///vehicle_items.db')
+
 
 # creating all engines
 Base.metadata.create_all(engine)
