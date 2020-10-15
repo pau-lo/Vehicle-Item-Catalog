@@ -49,6 +49,6 @@ After the last command you are able to browse the application at this URL:
 `http://localhost:5000/`
 
 
-#### Thanks
+
     
 
